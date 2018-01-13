@@ -19,20 +19,21 @@ class AddressTableSeeder extends Seeder
             $userId = rand(1, 10);
             $island_id = rand (1, 15);
             $city_id = rand (1, 20);
+            $telephone = rand(1, 100);
 
             $addresses [ ]  = [
                 'user_id' => $userId,
-                'shipping' => $shipping,
-                'billing' => $billing,
-                'firstname' => $firstname,
-                'lastname' => $lastname,
-                'company_name' => $company_name,
-                'Adress_line_1' => $Adress_line_1,
-                'Adress_line_2' => $Adress_line_2,
+                'shipping' => str_random(10),
+                'billing' => str_random(10),
+                'firstname' => str_random(10),
+                'lastname' => str_random(10),
+                'company_name' => str_random(10),
+                'Adress_line_1' => str_random(10),
+                'Adress_line_2' => str_random(10),
                 'island_id' => $island_id,
                 'city_id' => $city_id,
                 'telephone' => $telephone,
-                'email' => $email
+                'email' => str_random(10)
 
             ];
         endfor;
