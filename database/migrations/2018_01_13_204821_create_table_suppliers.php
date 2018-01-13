@@ -14,6 +14,15 @@ class CreateTableSuppliers extends Migration
     public function up()
     {
         //
+        Schema::create('supplierOrders', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('order_number');
+            $table->date('order_date');
+            $table->date('delivery_date');
+            $table->integer('supplier_id');
+
+            $table->timestamps();
+
     }
 
     /**
@@ -24,5 +33,6 @@ class CreateTableSuppliers extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('supplierOrders');
     }
 }
