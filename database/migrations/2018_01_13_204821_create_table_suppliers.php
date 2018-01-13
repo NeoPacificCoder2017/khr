@@ -14,6 +14,18 @@ class CreateTableSuppliers extends Migration
     public function up()
     {
         //
+        Schema::crate('suppliers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->varchar('last_name');
+            $table->varchar('first_name');
+            $table->varchar('e-mail');
+            $table->integer('celphone');
+            $table->integer('validated')->default(2);
+            $table->integer('validated_by')->default(0);
+
+            $table->timestamps();
+        })
+
     }
 
     /**
@@ -24,5 +36,8 @@ class CreateTableSuppliers extends Migration
     public function down()
     {
         //
+        
+        Schema::dropIfExists('suppliers');
+        
     }
 }
