@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('addresses', 'AddressController@all');
+Route::post('addresses', 'AddressController@create'); // $addressID est récupérer dans le controleur
+Route::get('addresses/new', 'AddressController@new'); // $addressID est récupérer dans le controleur
+Route::get('addresses/{addressId}', 'addressController@show'); // $addressID est récupérer dans le controleur
