@@ -15,7 +15,8 @@ class CreateUserPaymentModeTable extends Migration
     {
         Schema::create('UserPaymentMode', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->default(1);
+            $table->integer('user_id');
+            $table->integer('payment_mode_id');
             $table->timestamps();
         });
     }
