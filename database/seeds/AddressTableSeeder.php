@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Address; // on ajoute le model
+use App\Address; 
 
 class AddressTableSeeder extends Seeder
 {
@@ -28,8 +28,8 @@ class AddressTableSeeder extends Seeder
                 'firstname' => str_random(10),
                 'lastname' => str_random(10),
                 'company_name' => str_random(10),
-                'Adress_line_1' => str_random(10),
-                'Adress_line_2' => str_random(10),
+                'address_line_1' => str_random(10),
+                'address_line_2' => str_random(10),
                 'island_id' => $island_id,
                 'city_id' => $city_id,
                 'telephone' => $telephone,

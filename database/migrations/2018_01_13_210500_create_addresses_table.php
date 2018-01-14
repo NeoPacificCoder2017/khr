@@ -22,8 +22,8 @@ class CreateAddressesTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->text('company_name');
-            $table->text('adress_line_1');
-            $table->text('adress_line_2');
+            $table->text('address_line_1');
+            $table->text('address_line_2');
             $table->integer('island_id');
             $table->integer('city_id');
             $table->string('telephone');

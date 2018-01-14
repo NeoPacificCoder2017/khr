@@ -16,6 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('addresses', 'AddressController@all');
-Route::post('addresses', 'AddressController@create'); // $addressID est récupérer dans le controleur
-Route::get('addresses/new', 'AddressController@new'); // $addressID est récupérer dans le controleur
+Route::post('addresses', 'AddressController@create');
+Route::get('addresses/new', 'AddressController@new');
+
 Route::get('addresses/{addressId}', 'addressController@show'); // $addressID est récupérer dans le controleur
+
+// Route::get('addresses/{addressId}/edit',  'addressController@edit');//->with('addressId', $addressId);
+
+
