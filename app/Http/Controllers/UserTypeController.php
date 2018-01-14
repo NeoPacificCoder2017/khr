@@ -45,7 +45,7 @@ class UserTypeController extends Controller {
 
 	public function update($userType) {
 		$userType = UserType::find($userTypeId);
-		$userType->title = Input::get('userType_newTitle');
+		$userType->title = Input::get('userType_title');
 		$userType->save();
 	}
 
