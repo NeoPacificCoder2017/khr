@@ -21,4 +21,4 @@ Route::get('/categories/new', function () {
     return view('categories-form');
 });
 
-//Route::get('categories/new','CategorieController@new');
+Route::post('categories','CategorieController@create');
