@@ -14,7 +14,7 @@ class CreateTableSupplierOrderLists extends Migration
     public function up()
     {
         //
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('supplierOrderLists', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('suppplier_id');
             $table->integer('supplier_order_id');
@@ -36,5 +36,6 @@ class CreateTableSupplierOrderLists extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('supplierOrderLists')
     }
 }
