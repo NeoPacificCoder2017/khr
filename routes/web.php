@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('userpaymentmode', 'UserPaymentModeController@all');
+
+Route::get('userpaymentmode/new','UserPaymentModeController@new');
+
+Route::get('userpaymentmode/{userpaymentId}', 'UserPaymentModeController@show');
+
+Route::post('userpaymentmodes', 'UserPaymentModeController@create');
