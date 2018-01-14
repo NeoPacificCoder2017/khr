@@ -1,12 +1,13 @@
-<form>
-    {{ csrf_field() }}
+
+
+{!! Form::open(['url' => 'categories']) !!}
 
     <input type="text" name="nom" placeholder='nom'/>
-    <select>
-        <option value='legume'>Légumes</option>
-        <option value='fruit'>Fruits</option>
-        <option value='parent'>Parent</option>
+    <select name="selection">
+        <option value="1">Légumes</option>
+        <option value="2">Fruits</option>
+        <option name="parent" value='0'>Parent</option>
     </select>
     <input type="submit" value="valider"/>
 
-</form>
+    {!! Form::close() !!}
