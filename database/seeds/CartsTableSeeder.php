@@ -23,7 +23,7 @@ class CartsTableSeeder extends Seeder
             $billingAddress_id = rand(1, 15);
 
             $carts[] = [   
-                'user_id' => $userID,
+                'user_id' => $userId,
                 'total' => $total,
                 'UserPaymentMode_id' => $userPaymentMode,
                 'shippingAddress_id' => $shippingAddress_id,
@@ -33,7 +33,7 @@ class CartsTableSeeder extends Seeder
 
         foreach($carts AS $cart):
 
-            Message::create($cart);
+            Cart::create($cart);
         endforeach;
     }
 }
