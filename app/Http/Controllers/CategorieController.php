@@ -21,7 +21,7 @@ class CategorieController extends Controller
                 $categorie = new Categories();
 
                     $categorie->nom = $input['nom'];
-                    $categorie->parent_id = $input['selection'];
+                    $categorie->parent_id = $input['categorie'];
                 
 
                 $categorie->save();
