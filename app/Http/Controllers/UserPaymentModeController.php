@@ -27,12 +27,18 @@ class UserPaymentModeController extends Controller
     }
 
     public function create(Request $request){
-        dump($request->input['user_id']);die;
+        //dump($request->input['user_id']);die;
         // $userNew = new UserPaymentMode();
         // $userNew->user_id = $request->$input['user_id'];
         // $userNew->payment_mode_id = $request->$input['payment_mode_id'];
         // $userNew->save();
-        
-        return view('userpaymentmode.userpaymentmode-create-confirmation');
+			$input = $request->all();
+
+			$newUser = new UserPaymentMode();
+			$newUser->user_id = $input['user_id'];
+			$newUser->payment_mode_id = $input['payment_mode_id'];
+			$newUser->save();
+			
+			return view('userpaymentmode.userpaymentmode-create-confirmation');
     }
 }
