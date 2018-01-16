@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use App\PaymentMode;
 
 class PaymentModeTableSeeder extends Seeder
 {
@@ -12,13 +14,16 @@ class PaymentModeTableSeeder extends Seeder
     public function run()
     {
         for($i = 0; $i < 10; $i++):
-            $paymentmodes[] = [
-                'name'=> $name = str_random(10),];
+            $userID = rand(1, 10);
+
+            $paymentmode[] = [
+                'user_id'=>$userID,
+                'name'=> str_random(5),];
         endfor;
     
-           foreach($paymentmodes AS $Payment):
-                UserPaymentMode::create($Payment);
-           endforeach;
-    } 
+        //    foreach($paymentmode AS $Payment):
+        //         PaymentMode::create($Payment);
+        //    endforeach;
+    }
 }
 
