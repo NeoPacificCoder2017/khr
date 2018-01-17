@@ -2012,6 +2012,7 @@ return array(
     'PHP_Token_YIELD_FROM' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'ParseError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ParseError.php',
     'Parsedown' => $vendorDir . '/erusev/parsedown/Parsedown.php',
+    'PaymentModeTableSeeder' => $baseDir . '/database/seeds/PaymentModeTableSeeder.php',
     'PharIo\\Manifest\\Application' => $vendorDir . '/phar-io/manifest/src/values/Application.php',
     'PharIo\\Manifest\\ApplicationName' => $vendorDir . '/phar-io/manifest/src/values/ApplicationName.php',
     'PharIo\\Manifest\\Author' => $vendorDir . '/phar-io/manifest/src/values/Author.php',
