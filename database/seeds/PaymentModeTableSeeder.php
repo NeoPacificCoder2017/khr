@@ -13,17 +13,17 @@ class PaymentModeTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 10; $i++):
-            $userID = rand(1, 10);
+      for($i = 0; $i < 10; $i++):
+          $userID = rand(1, 10);
 
-            $paymentmode[] = [
-                'user_id'=>$userID,
-                'name'=> str_random(5),];
-        endfor;
-    
-        //    foreach($paymentmode AS $Payment):
-        //         PaymentMode::create($Payment);
-        //    endforeach;
+          $paymentmode[] = [
+              'user_id'=>$userID,
+              'name'=> str_random(5),];
+      endfor;
+  
+      foreach($paymentmode AS $Payment):
+          PaymentMode::create($Payment);
+      endforeach;
     }
 }
 
