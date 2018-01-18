@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('paymentmodes', 'PaymentModeController@all');
+
+Route::get('paymentmodes/new', 'PaymentModeController@new');
+
+Route::get('paymentmode/{paymentmodeId}', 'PaymentModeController@show');
+
+Route::post('paymentmode', 'PaymentModeController@create');
+
+Route::delete('paymentmodes/{paymentmodeId}', 'PaymentModeController@destroy');
