@@ -5,25 +5,18 @@ use App\UserType;
 
 class UserTypesTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        DB::table('user_types')->delete();
-        
-        UserType::create(array(
-            'title' => 'consommateur'
-        ));
-        
-        UserType::create(array(
-            'title' => 'employé'
-        ));
-    
-        UserType::create(array(
-            'title' => 'société'
-        ));
-    }
+	/**
+	* Run the database seeds.
+	*
+	* @return void
+	*/
+	public function run()
+	{
+		$userTypes = ['consommateur', 'employé', 'société'];
+		DB::table('user_types')->delete();
+				
+		foreach($userTypes as $userType) {
+			UserType::create(array('title' => $userType));
+		}
+	}
 }
