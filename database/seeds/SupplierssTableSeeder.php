@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use App\Suppliers;
 
 class SuppliersTableSeeder extends Seeder
 {
@@ -11,6 +13,7 @@ class SuppliersTableSeeder extends Seeder
      */
     public function run()
     {
+        //
         $suppliers = [];
 
 
