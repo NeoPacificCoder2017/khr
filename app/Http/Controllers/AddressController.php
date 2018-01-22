@@ -15,8 +15,8 @@ class AddressController extends Controller
 
     public function show($addressId){
         $address = Address::find($addressId);
-        // dump($address);
-        return view('addresses.address');
+        // dd($address);
+        return view('addresses.address',['address' => $address]);
     }
 
     public function new(){ 
@@ -41,7 +41,6 @@ class AddressController extends Controller
         $address->email = $input['email'];
 
         $address->save();
-
     }
 
 }
