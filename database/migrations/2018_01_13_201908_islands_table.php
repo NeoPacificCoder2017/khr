@@ -16,7 +16,8 @@ class IslandsTable extends Migration
         Schema::create('islands', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->timestamp();
+
+            $table->timestamps();
         });
     }
 
@@ -27,6 +28,6 @@ class IslandsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('islands');
+        Schema::drop('islands');
     }
 }
