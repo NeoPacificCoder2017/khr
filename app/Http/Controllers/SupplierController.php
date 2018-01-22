@@ -28,7 +28,7 @@ class SupplierController extends Controller
     public function create() {
         $input = $request->all();
 
-        $supplier = new Suppliers();
+        $supplier = new suppliers();
         $supplier ->suppler_id = $input['supplier_id'];
         $supplier ->name = $input['name'];
         $supplier ->last_name = $inpute['last_name'];
