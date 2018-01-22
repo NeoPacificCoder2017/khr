@@ -22,3 +22,4 @@ Route::get('/categories/new', function () {
 });
 
 Route::post('categories','CategorieController@create');
+

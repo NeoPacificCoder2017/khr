@@ -1,12 +1,24 @@
 
 
+
+
+
 {!! Form::open(['url' => 'categories']) !!}
 
     <input type="text" name="nom" placeholder='nom'/>
     <select name="categorie">
-        <option value="1">Légumes</option>
-        <option value="2">Fruits</option>
-        <option name="parent" value='0'>Parent</option>
+        
+     
+
+        @foreach(App\categories::all() as $categorie)
+
+        @if($categorie->parent_id == 0)
+        <option value='{{$categorie->id}}'>{{ $categorie->nom }}</option>
+        @endif
+        @endforeach
+        <option value='0'><b>PARENTS</b></option>
+      
+        
     </select>
     <input type="submit" value="valider"/>
 
