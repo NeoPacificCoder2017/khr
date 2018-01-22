@@ -43,4 +43,10 @@ class AddressController extends Controller
         $address->save();
     }
 
+    public function edit($addressId){
+        $address = Address::find($addressId);
+        // dd($address);
+        return view('addresses.address-form',['address' => $address]);
+    }
+
 }

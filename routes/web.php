@@ -18,8 +18,9 @@ Route::get('/', function () {
 Route::get('addresses', 'AddressController@all');
 Route::post('addresses', 'AddressController@create');
 Route::get('addresses/new', 'AddressController@new');
-
 Route::get('addresses/{addressId}', 'AddressController@show'); // $addressID est récupérer dans le controleur
+Route::get('addresses/{addressId}/edit', 'AddressController@edit');
+Route::put('addresses/{addressId}', 'AddressController@update');
 
 // Route::get('addresses/{addressId}/edit',  'addressController@edit');//->with('addressId', $addressId);
 
