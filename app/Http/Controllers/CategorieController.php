@@ -16,7 +16,6 @@ class CategorieController extends Controller
     public function create(Request $request){
         
                 $input = $request->all();
-                dump($input);
         
                 $categorie = new Categories();
 
@@ -28,7 +27,16 @@ class CategorieController extends Controller
 
                 return "l'enregistrement de ".request('nom').' est réussit';
                
-            }
+    }
+
+    public function show($categoriesId){
+
+
+        $categorie = Categories::find($categoriesId);
+        dump($categorie);
+        return view('categories');
+    }
+
         
 
 
