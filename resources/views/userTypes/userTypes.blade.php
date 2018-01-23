@@ -15,7 +15,7 @@
 					<option value="deleteAll">Delete all</option>
 					<option value="selectAll">Select all</option>
 				</select>
-				<button type="button" class="btn btn-primary btn-sm">New</button>
+				<a href="{{action('userTypeController@new')}}"><button type="button" class="btn btn-primary btn-sm">New</button></a>
 			</div>
 			<thead>
 				<tr>
@@ -36,8 +36,8 @@
 				<td>{{$userType->title}}</td> 
 				<td>{{$userType->created_at}}</td>
 				<td>{{$userType->updated_at}}</td>
-				<td><button type="button" class="btn btn-primary btn-sm">Edit</button>
-						<button type="button" class="btn btn-primary btn-sm">Delete</button></td>
+				<td><a href=""><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
+						<a href=""><button type="button" class="btn btn-primary btn-sm">Delete</button></a></td>
 			</tr>
 		@endforeach
 		</tbody>
