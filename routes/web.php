@@ -23,4 +23,4 @@ Route::get('paymentmode/{paymentmodeId}', 'PaymentModeController@show');
 
 Route::post('paymentmode', 'PaymentModeController@create');
 
-Route::delete('paymentmodes/{paymentmodeId}', 'PaymentModeController@destroy');
+Route::get('paymentmode/{paymentmodeId}', 'PaymentModeController@destroy');
