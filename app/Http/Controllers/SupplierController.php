@@ -3,20 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\suppliers;
+use App\Http\Controllers\Controller;
+use App\Supplier;
 
 class SupplierController extends Controller
 {
     
     public function all() {
-        $supplier = suppliers::all();
-
-        dump($supplier);
-        return view('suppliers.suppliers');
+        $supplier = Supplier::all();
+        return view('suppliers.suppliers',['suppliers' => $supplier]);
     }
 
     public function show() {
-        $supplier = suppliers::find($supplierId);
+        $supplier = Supplier::find($supplierId);
         dump($supplier);
         return view('suppliers.supplier');
     }

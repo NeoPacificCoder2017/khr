@@ -16,10 +16,11 @@ class CreateTableSuppliers extends Migration
         //
         Schema::create('suppliers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->string('last_name');
             $table->string('first_name');
-            $table->string('e-mail');
-            $table->integer('celphone');
+            $table->string('email');
+            $table->integer('cellphone');
             $table->integer('validated')->default(2);
             $table->integer('validated_by')->default(0);
 
