@@ -11,7 +11,7 @@ class PaymentModeController extends Controller
     public function all(){
         $paymentmode = PaymentMode::all();
         dump($paymentmode); 
-        return view('paymentmode');
+        return view('paymentmode', ['paymentmode' => $paymentmode]);
     }
 
     public function show($paymentmodeId){
@@ -38,9 +38,8 @@ class PaymentModeController extends Controller
 			return view('paymentmode-create-confirmation');
     }
 
-    public function destroy(Request $request){
-        $input = $request->all();
-			$paymentmode = new PaymentMode();
+    public function destroy($paymentmodeId){
+            $paymentmode = PaymentMode::find($paymentmodeId);
 			$paymentmode ->delete();
         return view('paymentmode-delete');
     }
