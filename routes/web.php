@@ -16,7 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('products','ProductController@listAllTheProducts');
+
 Route::post('products', 'ProductController@store');
 Route::get('product/new', 'ProductController@create');
+
+Route::get('product/{productId}/edit', 'ProductController@edit');
+Route::patch('product/{productId}/edit', 'ProductController@update');
 
 Route::get('product/{productId}', 'ProductController@show');
