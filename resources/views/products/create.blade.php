@@ -1,56 +1,83 @@
 
 @extends('layouts.template')
 
+@section('title', 'Ajouter un produit')
 @section('content')
-<div class="container">
-  <h2>Stacked form</h2>
-  <form action="/action_page.php">
 
-    <div class="form-group">
-      <label for="name">Nom:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
-    </div>
+    <div class="container">
+      @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div><br />
+      @endif
+      @if (\Session::has('success'))
+      <div class="alert alert-success">
+          <p>{{ \Session::get('success') }}</p>
+      </div><br />
+      @endif
+      
+<span class="anchor" id="formUserEdit"></span>
 
-    <div class="form-group">
-      <label for="image">image:</label>
-      <input type="file" class="form-control" id="image" placeholder="Enter image" name="image">
+    <form class="form" method="post" enctype="multipart/form-data" action="{{url('products')}}">
+      {{csrf_field()}}
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Produit :</label>
+                <div class="col-lg-9">
+                    <input name="name" class="form-control" type="text" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">image :</label>
+                <div class="col-lg-9">
+                    <input name="image" class="form-control" type="file" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Fournisseur :</label>
+                <div class="col-lg-9">
+                    <input name="supplier_id" class="form-control" type="number" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Commande :</label>
+                <div class="col-lg-9">
+                    <input name="supplier_order_id" class="form-control" type="number" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Catégorie :</label>
+                <div class="col-lg-9">
+                    <input name="product_category_id" class="form-control" type="number" value="">
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Quantité :</label>
+                <div class="col-lg-9">
+                    <input name="quantity" class="form-control" type="number" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label">Prix :</label>
+                <div class="col-lg-9">
+                    <input name="price" class="form-control" type="number" value="">
+                </div>
+            </div>
+            
+            
+            <div class="form-group row">
+                <label class="col-lg-3 col-form-label form-control-label"></label>
+                <div class="col-lg-9">
+                    <input type="reset" class="btn btn-default" value="Cancel">
+                    <input type="submit" class="btn btn-default" value="Save Changes">
+                </div>
+            </div>
+        </form>
     </div>
+<!-- /form user info -->
 
-    <div class="form-group">
-      <label for="Fournisseur">Fournisseur:</label>
-      <input type="number" class="form-control" id="supplier_id" placeholder="Enter supplier_id" name="supplier_id">
-    </div>
-
-    <div class="form-group">
-      <label for="Commande">Commande:</label>
-      <input type="number" class="form-control" id="supplier_order_id" placeholder="Enter supplier_order_id" name="supplier_order_id">
-    </div>
-
-    <div class="form-group">
-      <label for="Catégorie">Catégorie:</label>
-      <input type="number" class="form-control" id="product_category_id" placeholder="Enter product_category_id" name="product_category_id">
-    </div>
-
-    <div class="form-group">
-      <label for="quantity">Quantité:</label>
-      <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" name="quantity">
-    </div>
-
-    <div class="form-group">
-      <label for="price">Prix:</label>
-      <input type="number" class="form-control" id="price" placeholder="Enter price" name="price">
-    </div>
-    
-
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-    </div>
-
-    <div class="form-group">
-    <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-    
-  </form>
-</div>
 @stop

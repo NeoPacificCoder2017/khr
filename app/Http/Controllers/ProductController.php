@@ -26,8 +26,30 @@ class ProductController extends Controller
         return view('products.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        
+        $this->validate($request, [
+            'name' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'supplier_id' => 'required|numeric',
+            'supplier_order_id' => 'required|numeric',
+            'product_category_id' => 'required|numeric',
+            'quantity' => 'required|numeric',
+            'price' => 'required|numeric'
+        ]);
+
+        $product = new Product($request->input());
+
+        if($file = $request->hasFile('image')) {
+            
+            $file = $request->file('image') ;
+            
+            $fileName = time().'.'.$file->getClientOriginalName() ;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$fileName);
+            $product->image = $fileName ;
+        }
+        $product->save() ;
+        return back()->with('success', 'Product has been added');;
     }
 }
