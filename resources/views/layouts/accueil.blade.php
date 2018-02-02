@@ -18,8 +18,6 @@
             <p>@yield('title')</p>      
         </div>
         @yield('content')
-        <br>
-        <a href="{{ url('products') }}"><button class="btn btn-default">Retour <i class="fa fa-home"></i></button></a>
 
     </div>
 

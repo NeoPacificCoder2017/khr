@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.accueil')
 
 @section('title', 'Nos produits')
 
@@ -29,7 +29,7 @@
             <td>{{ $product->price }}</td>
             <td>
                 <a href="{{ url('/product/'.$product->id) }}"><button class="btn btn-default"><i class="fa fa-eye"></i></button></a>
-                <a href=""><button class="btn btn-default"><i class="fa fa-pencil"></i></button></a>
+                <a href="{{ url('/product/'.$product->id .'/edit') }}"><button class="btn btn-default"><i class="fa fa-pencil"></i></button></a>
                 <a href=""><button class="btn btn-default"><i class="fa fa-trash"></i></button></a>
             </td>
         </tr>

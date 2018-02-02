@@ -1,32 +1,21 @@
 @extends('layouts.template')
 
-@section('title', 'Nos produits')
+@section('title')
+{{ $product->name }}
+@stop
 
 @section('content')
-<table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Nom</th>
-            <th>Image</th>
-            <th>Fournisseur</th>
-            <th>Commande</th>
-            <th>Category</th>
-            <th>Quantité</th>
-            <th>Prix</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{ $product->id }}</td>
-            <td>{{ $product->name }}</td>
-            <td>{{ $product->image }}</td>
-            <td>{{ $product->supplier_id }}</td>
-            <td>{{ $product->supplier_order_id }}</td>
-            <td>{{ $product->product_category_id }}</td>
-            <td>{{ $product->quantity }}</td>
-            <td>{{ $product->price }}</td>
-        </tr>
-    </tbody>
-</table>
+    <h2 style="text-transform:uppercase;">{{ $product->name }}</h2>
+        <div class="card">
+            <div class="card-body">
+            <img src="{{ $product->image }}">
+                <p>Provient de chez {{ $product->supplier_id }} </p>
+                <p>Commande : {{ $product->supplier_order_id }}</p>
+                <p>Catégorie : {{ $product->product_category_id }}</p>
+                <p>Quantité : {{ $product->quantity }}</p>
+                <p>Prix : {{ $product->price }} XPF</p>
+            </div>
+        </div>
+
+
 @stop

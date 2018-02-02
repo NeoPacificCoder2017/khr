@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('products','ProductController@listAllTheProducts');
-Route::get('product/{$productId}','ProductController@show');
+Route::get('product/new', 'ProductController@create');
+Route::get('product/{productId}', 'ProductController@show');

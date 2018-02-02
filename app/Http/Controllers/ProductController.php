@@ -17,7 +17,17 @@ class ProductController extends Controller
     public function show($productId)
     {
         $product = Product::find($productId);
-        dump($product);
+        // dump($product);
         return view('products.product',['product'=>$product]);
+    }
+
+    public function create()
+    {
+        return view('products.create');
+    }
+
+    public function store()
+    {
+        
     }
 }
