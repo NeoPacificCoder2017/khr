@@ -13,10 +13,24 @@
 </head>
 <body>
     <div class="container">
-        <div class="jumbotron">
-            <h1>Kai Hotu Rau</h1>
+        <div class="jumbotron" style="">
+            <h1 style="text-decoration:underline;">Kai Hotu Rau</h1>
             <p>@yield('title')</p>      
         </div>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div><br />
+        @endif
+        @if (\Session::has('success'))
+        <div class="alert alert-success">
+            <p>{{ \Session::get('success') }}</p>
+        </div>
+        @endif
         @yield('content')
 
     </div>

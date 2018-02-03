@@ -5,22 +5,7 @@
 @section('content')
 
     <div class="container">
-      @if ($errors->any())
-      <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-      </div><br />
-      @endif
-      @if (\Session::has('success'))
-      <div class="alert alert-success">
-          <p>{{ \Session::get('success') }}</p>
-      </div><br />
-      @endif
-      
-<span class="anchor" id="formUserEdit"></span>
+    <span class="anchor" id="formUserEdit"></span>
 
     <form class="form" method="post" enctype="multipart/form-data" action="{{url('products')}}">
       {{csrf_field()}}

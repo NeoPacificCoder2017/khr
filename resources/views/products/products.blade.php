@@ -5,6 +5,7 @@
 
 @section('content')
 <div class="pull-right">
+    <a href="{{ action('ProductController@newProducts') }}"><button class="btn btn-default">Nos nouveaux produits <i class="fa fa-envira"></i></button></a>
     <a href="{{ url('/product/new') }}"><button class="btn btn-default">Ajouter un produit <i class="fa fa-plus"></i></button></a>
     <br><br>
     </div> 
@@ -12,15 +13,15 @@
 <table class="table table-bordered table-hover">
     <thead class="bg-default">
         <tr>
-            <th>#</th>
-            <th>Nom</th>
+            <th><a href=" {{ action('ProductController@listAllTheProducts') }} ">#</a></th>
+            <th>Nom <a href="{{ action('ProductController@sortByName') }}"><i class="fa fa-caret-down"></i></a></th>
             <th>Image</th>
-            <th>Fournisseur</th>
-            <th>Commande</th>
-            <th>Category</th>
-            <th>Quantité</th>
-            <th>Prix</th>
-            <th>action</th>
+            <th>Fournisseur <a href="{{ action('ProductController@sortBySupplier') }}"><i class="fa fa-caret-down"></i></a></th>
+            <th>Commande </th>
+            <th>Category </th>
+            <th>Quantité <a href="{{ action('ProductController@sortByQuantity') }}"><i class="fa fa-caret-down"></i></a></th>
+            <th>Prix <a href="{{ action('ProductController@sortByPrice') }}"><i class="fa fa-caret-down"></i></a></th>
+            <th>action </th>
         </tr>
     </thead>
     <tbody>
@@ -36,12 +37,11 @@
             <td>{{ $product->price }} XPF</td>
             <td>
                 <a href="{{ url('/product/'.$product->id) }}"><button class="btn btn-default"><i class="fa fa-eye"></i></button></a>
-                <a href="{{ url('/product/'.$product->id .'/edit') }}"><button class="btn btn-default"><i class="fa fa-pencil"></i></button></a>
-                <a href=""><button class="btn btn-default"><i class="fa fa-trash"></i></button></a>
+                <a href="{{ url('/product/'.$product->id.'/edit') }}"><button class="btn btn-default"><i class="fa fa-pencil"></i></button></a>
+                <a href="{{ url('/product/'.$product->id.'/delete') }}"><button class="btn btn-default"><i class="fa fa-trash"></i></button></a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-{{ $products->links() }}
 @stop

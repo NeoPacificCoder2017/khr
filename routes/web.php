@@ -24,3 +24,10 @@ Route::get('product/{productId}/edit', 'ProductController@edit');
 Route::patch('product/{productId}/edit', 'ProductController@update');
 
 Route::get('product/{productId}', 'ProductController@show');
+Route::get('product/{productId}/delete', 'ProductController@destroy');
+
+Route::get('products/sortbyname','ProductController@sortByName');
+Route::get('products/sortBySupplier','ProductController@sortBySupplier');
+Route::get('products/sortbyQuantity','ProductController@sortByQuantity');
+Route::get('products/sortbyPrice','ProductController@sortByPrice');
+Route::get('products/newProducts','ProductController@newProducts');

@@ -50,7 +50,7 @@ class ProductController extends Controller
             $product->image = $fileName ;
         }
         $product->save() ;
-        return back()->with('success', 'Product has been added');;
+        return back()->with('success', 'Le produit à bien été ajouté');;
     }
 
     public function edit($productId)
@@ -89,6 +89,43 @@ class ProductController extends Controller
         $product->quantity = $request->get('quantity');
         $product->price = $request->get('price');
         $product->save() ;
-        return back()->with('success', 'Product has been added');;
+        return back()->with('success', 'Le produit à bien été modifié');
+    }
+
+    public function destroy($productId)
+    {
+        $product = Product::find($productId);
+        $product->delete();
+        return redirect('products')->with('success','Le produit à bien été supprimé');
+    }
+
+    public function sortByName()
+    {
+        $products = DB::table('products')->orderBy('name')->get();
+        return view('products.products',['products'=>$products]); 
+    }
+
+    public function sortBySupplier()
+    {
+        $products = DB::table('products')->orderBy('supplier_id')->get();
+        return view('products.products',['products'=>$products]); 
+    }
+
+    public function sortByQuantity()
+    {
+        $products = DB::table('products')->orderBy('quantity')->get();
+        return view('products.products',['products'=>$products]); 
+    }
+
+    public function sortByPrice()
+    {
+        $products = DB::table('products')->orderBy('price')->get();
+        return view('products.products',['products'=>$products]);   
+    }
+
+    public function newProducts()
+    {
+        $products = DB::table('products')->orderBy('created_at')->get();
+        return view('products.products',['products'=>$products]);   
     }
 }

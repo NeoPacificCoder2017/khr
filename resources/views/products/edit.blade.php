@@ -5,21 +5,7 @@
 @section('content')
 
     <div class="container">
-      @if ($errors->any())
-      <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-      </div><br />
-      @endif
-      @if (\Session::has('success'))
-      <div class="alert alert-success">
-          <p>{{ \Session::get('success') }}</p>
-      </div><br />
-      @endif
-<span class="anchor" id="formUserEdit"></span>
+    <span class="anchor" id="formUserEdit"></span>
 
     <form class="form" method="post" enctype="multipart/form-data" action="{{action('ProductController@update', $product->id)}}">
     {{csrf_field()}}
@@ -33,7 +19,7 @@
             <div class="form-group row">
                 <label class="col-lg-3 col-form-label form-control-label">image :</label>
                 <div class="col-lg-9">
-                    <input name="image" class="form-control" type="file" value="">
+                    <input name="image" class="" type="file" value="{{ $product->image }}">
                 </div>
             </div>
             <div class="form-group row">

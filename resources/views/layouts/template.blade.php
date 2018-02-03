@@ -13,11 +13,27 @@
 </head>
 <body>
     <div class="container">
-        <div class="jumbotron">
-            <h1>Kai Hotu Rau</h1>
+        <div class="jumbotron" >
+            <h1 style="text-decoration:underline;">Kai Hotu Rau</h1>
             <p>@yield('title')</p>      
         </div>
+
+      
         @yield('content')
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div><br />
+        @endif
+        @if (\Session::has('success'))
+        <div class="alert alert-success">
+            <p>{{ \Session::get('success') }}</p>
+        </div><br />
+        @endif
         <br>
         <a href="{{ url('products') }}"><button class="btn btn-default">Retour <i class="fa fa-home"></i></button></a>
 
